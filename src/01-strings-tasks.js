@@ -18,7 +18,7 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
- function concatenateStrings(value1, value2) {
+function concatenateStrings(value1, value2) {
   return value1 + value2;
 }
 
@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  const str = 'Hello, ' + firstName + ' ' + lastName + '!';
+  const str = `Hello, ${firstName} ${lastName}!`;
   return str;
 }
 
@@ -143,7 +143,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.slice (1, -1);
+  return str.slice(1, -1);
 }
 
 
@@ -225,9 +225,7 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[A-Za-z]/g, function(c) {
-    return String.fromCharCode( c.charCodeAt(0) + ( c.toUpperCase() <= 'M' ? 13 : -13 ) );
-  });
+  return str.replace(/[A-Za-z]/g, (c) => String.fromCharCode(c.charCodeAt(0) + (c.toUpperCase() <= 'M' ? 13 : -13)));
 }
 
 /**
@@ -295,19 +293,19 @@ function getCardId(value) {
   }
   const card = value.slice(1);
   if (card === '♣') {
-    getNumber(value)
+    getNumber(value);
   }
   if (card === '♦') {
     id += 13;
-    getNumber(value)
+    getNumber(value);
   }
   if (card === '♥') {
     id += 26;
-    getNumber(value)
+    getNumber(value);
   }
   if (card === '♠') {
     id += 39;
-    getNumber(value)
+    getNumber(value);
   }
   if (value === 'A♣') { return 0; }
   return id;

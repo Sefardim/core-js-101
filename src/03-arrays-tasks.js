@@ -24,7 +24,7 @@ function findElement(arr, value) {
   let ArrayIndex;
   const findItem = arr.find((el, index) => {
     if (el === value) { return ArrayIndex = index; }
-  })
+  });
   if (ArrayIndex === undefined) { return -1; }
   return ArrayIndex;
 }
@@ -41,7 +41,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  let arr = [1];
+  const arr = [1];
   let count = 1;
   if (len === 1) { return arr; }
   for (let i = 1; i < len; i++) {
@@ -65,7 +65,7 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  let newArr = arr;
+  const newArr = arr;
   return arr.concat(newArr);
 }
 
@@ -82,7 +82,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return arr.filter(el => el >= 0);
+  return arr.filter((el) => el >= 0);
 }
 
 /**
@@ -97,9 +97,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  return arr.filter(function (el) {
-    return typeof el == 'string';
-  });
+  return arr.filter((el) => typeof el === 'string');
 }
 
 /**
@@ -116,7 +114,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter(val => Boolean(val));
+  return arr.filter((val) => Boolean(val));
 }
 
 /**
@@ -219,9 +217,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  const csv = arr.map(function(el) {
-    return el.join();
-  }).join('\n');
+  const csv = arr.map((el) => el.join()).join('\n');
   return csv;
 }
 
@@ -272,9 +268,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter(function (el, index) {
-    return index % 2 == 1;
-  });
+  return arr.filter((el, index) => index % 2 == 1);
 }
 
 
@@ -333,7 +327,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  const result = arr.filter(el => typeof el === 'number' && el > 0);
+  const result = arr.filter((el) => typeof el === 'number' && el > 0);
   return result.length;
 }
 
@@ -476,8 +470,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  let arr = [];
-  arr.fill()
+  const arr = [];
+  arr.fill();
   return arr;
 }
 
@@ -495,7 +489,7 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  let arr = [];
+  const arr = [];
   const difference = end - start + 1;
   if (start === end) {
     return [start];

@@ -19,7 +19,7 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
- function getRectangleArea(width, height) {
+function getRectangleArea(width, height) {
   return width * height;
 }
 
@@ -73,7 +73,7 @@ function getAverage(value1, value2) {
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   const a = x1 - x2;
   const b = y1 - y2;
-  return Math.sqrt( a * a + b * b );
+  return Math.sqrt(a * a + b * b);
 }
 
 /**
@@ -114,8 +114,7 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   let angle = Math.atan2(y2, x2) - Math.atan2(y1, x1);
-  if (angle > Math.PI)        { angle -= 2 * Math.PI; }
-  else if (angle <= -Math.PI) { angle += 2 * Math.PI; }
+  if (angle > Math.PI) { angle -= 2 * Math.PI; } else if (angle <= -Math.PI) { angle += 2 * Math.PI; }
   return angle;
 }
 
@@ -214,8 +213,8 @@ function isPrime(n) {
   if (n <= 1) return false;
   if (n % 2 == 0 && n > 2) return false;
   const number = Math.sqrt(n);
-  for(let i = 3; i <= number; i += 2) {
-    if(n % i === 0) return false;
+  for (let i = 3; i <= number; i += 2) {
+    if (n % i === 0) return false;
   }
   return true;
 }
