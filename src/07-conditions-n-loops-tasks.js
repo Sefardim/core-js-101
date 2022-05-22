@@ -29,8 +29,8 @@
  */
 function getFizzBuzz(num) {
   if (num % 3 === 0 && num % 5 === 0) { return 'FizzBuzz'; }
-  if (num % 3 === 0) { return 'fizz'; }
-  if (num % 5 === 0) { return 'buzz'; }
+  if (num % 3 === 0) { return 'Fizz'; }
+  if (num % 5 === 0) { return 'Buzz'; }
   return num;
 }
 
@@ -49,7 +49,7 @@ function getFizzBuzz(num) {
 function getFactorial(n) {
   let num = 1;
   if (n === 1) { return 1; }
-  for (let i = 1; i < n + 1; i++) {
+  for (let i = 1; i < n + 1; i += 1) {
     num *= i;
   }
   return num;
@@ -70,7 +70,7 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
   let sum = 0;
-  for (let i = n1; i <= n2; i++) {
+  for (let i = n1; i <= n2; i += 1) {
     sum += i;
   }
   return sum;
@@ -177,7 +177,7 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     const j = str.charAt(i);
     if (str.indexOf(j) === str.lastIndexOf(j)) {
       return j;
@@ -338,7 +338,7 @@ function isBracketsBalanced(str) {
   };
 
   const stack = [];
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     const currentSymbol = str[i];
 
     if (openBrackets.includes(currentSymbol)) {

@@ -21,12 +21,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-  let ArrayIndex;
-  const findItem = arr.find((el, index) => {
-    if (el === value) { return ArrayIndex = index; }
-  });
-  if (ArrayIndex === undefined) { return -1; }
-  return ArrayIndex;
+  return arr.indexOf(value);
 }
 
 /**
@@ -44,7 +39,7 @@ function generateOdds(len) {
   const arr = [1];
   let count = 1;
   if (len === 1) { return arr; }
-  for (let i = 1; i < len; i++) {
+  for (let i = 1; i < len; i += 1) {
     count += 2;
     arr.push(count);
   }
@@ -82,7 +77,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return arr.filter((el) => el >= 0);
+  return arr.filter((n) => n > 0);
 }
 
 /**
@@ -145,8 +140,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  length = arr.map((el) => el.length);
-  return length;
+  return arr.map((el) => el.length);
 }
 
 /**
@@ -253,7 +247,13 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-  return arr.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+  const result = [];
+  const total = arr.reduce((el, i) => {
+    result.push(el);
+    return el + i;
+  });
+  result.push(total);
+  return result;
 }
 
 /**
@@ -268,7 +268,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter((el, index) => index % 2 == 1);
+  return arr.filter((el, index) => index % 2 === 1);
 }
 
 
@@ -287,7 +287,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  if (arr.length == 0 || arr.length == 1) return arr;
+  if (arr.length === 0 || arr.length === 1) return arr;
   return arr.reduce((acc, v, i) => {
     acc.push(...Array(i + 1).fill(v));
     return acc;
@@ -470,9 +470,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  const arr = [];
-  arr.fill();
-  return arr;
+  return Array(n).fill(Array(n).fill()).map((el, i) => el.map((x, j) => (i === j ? 1 : 0)));
 }
 
 /**
@@ -489,15 +487,7 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  const arr = [];
-  const difference = end - start + 1;
-  if (start === end) {
-    return [start];
-  }
-  for (let i = 0; i < difference; i++) {
-    arr.push(start++);
-  }
-  return arr;
+  return Array(end - start + 1).fill().map((el, i) => start + i);
 }
 
 /**
@@ -512,8 +502,7 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-  const set = new Set([...arr]);
-  return set;
+  return [...new Set(arr)];
 }
 
 /**

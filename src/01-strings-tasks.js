@@ -271,44 +271,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  let id = 0;
-
-  function getNumber(value) {
-    const symbol = value.slice(0, 1);
-    if (symbol === 'A') {
-      return;
-    }
-    if (symbol === value instanceof Number) {
-      return id += symbol - 1;
-    }
-    if (symbol === 'J') {
-      return id += 10;
-    }
-    if (symbol === 'Q') {
-      return id += 11;
-    }
-    if (symbol === 'K') {
-      return id += 12;
-    }
-  }
-  const card = value.slice(1);
-  if (card === '♣') {
-    getNumber(value);
-  }
-  if (card === '♦') {
-    id += 13;
-    getNumber(value);
-  }
-  if (card === '♥') {
-    id += 26;
-    getNumber(value);
-  }
-  if (card === '♠') {
-    id += 39;
-    getNumber(value);
-  }
-  if (value === 'A♣') { return 0; }
-  return id;
+  const a = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  return a.indexOf(value);
 }
 
 

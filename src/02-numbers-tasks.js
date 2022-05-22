@@ -52,7 +52,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -114,7 +114,11 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   let angle = Math.atan2(y2, x2) - Math.atan2(y1, x1);
-  if (angle > Math.PI) { angle -= 2 * Math.PI; } else if (angle <= -Math.PI) { angle += 2 * Math.PI; }
+  if (angle > Math.PI) {
+    angle -= 2 * Math.PI;
+  } else if (angle <= -Math.PI) {
+    angle += 2 * Math.PI;
+  }
   return angle;
 }
 
@@ -131,8 +135,8 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  value = `${value}`;
-  return +value.charAt(value.length - 1);
+  const str = value.toString();
+  return +str.charAt(str.length - 1);
 }
 
 
@@ -165,9 +169,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  const hypotenuse = Math.sqrt((a * a) + (b * b));
-  const diagonale = Math.sqrt((hypotenuse * hypotenuse) + (c * c));
-  return diagonale;
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 
@@ -189,7 +191,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow);
+  return Math.round(num / (10 ** pow)) * (10 ** pow);
 }
 
 /**
@@ -211,7 +213,7 @@ function roundToPowerOfTen(num, pow) {
  */
 function isPrime(n) {
   if (n <= 1) return false;
-  if (n % 2 == 0 && n > 2) return false;
+  if (n % 2 === 0 && n > 2) return false;
   const number = Math.sqrt(n);
   for (let i = 3; i <= number; i += 2) {
     if (n % i === 0) return false;
@@ -235,11 +237,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  const number = Number(value);
-  if (isNaN(number)) {
-    return def;
-  }
-  return number;
+  if (Number(value)) return value;
+  return def;
 }
 
 module.exports = {
